@@ -3,19 +3,23 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ArtDetails = () => {
-  const { id } = useParams(); // Obtenemos el ID de la URL
+// Obtenemos el ID de la URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
-  const [pokemon, setPokemon] = useState(null); // Estado para almacenar los datos del Pokémon
+  // Estado para almacenar los datos del Pokémon
+  const [pokemon, setPokemon] = useState(null); 
 
   // Función que obtiene el Pokémon desde la API
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        setPokemon(response.data); // Guardamos los datos en el estado
+        // Guardamos los datos en el estado
+        setPokemon(response.data); 
       } catch (error) {
-        console.error('Error fetching Pokémon:', error);
-        setPokemon(null); // Si ocurre un error, seteamos null
+          console.error('Error fetching Pokémon:', error);
+          // Si ocurre un error, seteamos null
+          setPokemon(null); 
       }
     };
     fetchPokemon();
@@ -33,7 +37,7 @@ const ArtDetails = () => {
 
   // Función para navegar al Pokémon anterior
   const goPrev = () => {
-    const prevId = pokemon.id === 1 ? 1010 : pokemon.id - 1; // 1010 es el número aproximado de pokémon
+    const prevId = pokemon.id === 1 ? 1010 : pokemon.id - 1; 
     navigate(`/art/${prevId}`);
   };
 

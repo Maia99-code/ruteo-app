@@ -4,7 +4,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleGalleryNavigation = () => {
-    navigate('/art/1'); // Navega al primer Pokémon (ID: 1)
+    navigate('/art/1'); 
+    // Navega a la primera imagen. 
   };
 
   return (
